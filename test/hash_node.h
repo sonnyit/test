@@ -12,9 +12,9 @@ template <typename K, typename V>
 class HashNode
 {
 private:
-	HashNode *_next;
 	K _key;
 	V _value;
+	HashNode *_next;
 public:
 	HashNode(const K &key, const V &value) :
 		_key(key), _value(value), _next(nullptr) {};
