@@ -5,22 +5,20 @@
  *      Author: MinhNH13
  */
 #include <iostream>
-#include <cstring>
-#include <stdint.h>
+#include <string>
+#include "hash_map.h"
 
-int add(int a, int b) {
-	return a + b;
-}
+struct MyKeyHash {
+	unsigned long operator()(const int &k) const
+	{
+		return k % 10;
+	}
+};
 
 int main(int argc, char **argv)
 {
 	using namespace std;
-	char str[] = "this is a test sentence.";
-	if (strncmp(&str[5], "is", 2) == 0)
-		cout << "same" << endl;
-	else
-		cout << "not same" << endl;
-
+	HashMap<int, string> hash_map;
 
 	return 0;
 }
