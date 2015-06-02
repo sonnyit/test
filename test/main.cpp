@@ -8,18 +8,19 @@
 #include <cstring>
 #include <stdint.h>
 
+template <typename K>
 struct Add
 {
-	int operator()(int a)
+	K operator()(K a)
 	{
-		return 5;
+		return a;
 	}
 };
 
 int main(int argc, char **argv)
 {
 	using namespace std;
-	Add add;
+	Add<int> add;
 	int a = add(5);
 	cout << a << endl;
 
