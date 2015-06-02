@@ -19,7 +19,7 @@ struct KeyHash {
 		return static_cast<unsigned long>(key) % TABLE_SIZE;
 	}
 };
-//template struct KeyHash<int>;
+template struct KeyHash<int>;
 
 template <typename K, typename V>
 class HashMap
