@@ -24,7 +24,7 @@ HashMap<K, V>::~HashMap()
 			entry = entry->get_next();
 			delete prev;
 		}
-		delete _hash_map[i];
+		_hash_map[i] = nullptr;
 	}
 	delete []_hash_map;
 }
@@ -33,7 +33,8 @@ template <typename K, typename V>
 bool HashMap<K, V>::get(const K &key, V &value)
 {
 	HashNode<K, V> *entry;
-	unsigned long hash_value = KeyHash<K>(key);
+	KeyHash<K> hash_func;
+	unsigned long hash_value = hash_func(key);
 	entry = _hash_map[hash_value];
 
 	while (entry != nullptr)
@@ -51,7 +52,8 @@ bool HashMap<K, V>::get(const K &key, V &value)
 template <typename K, typename V>
 void HashMap<K, V>::put(const K &key, const V &value)
 {
-	unsigned long hash_value = KeyHash<K>(key);
+	KeyHash<K> hash_func;
+	unsigned long hash_value = hash_func(key);
 	HashNode<K, V> *entry, *prev;
 	entry = _hash_map[hash_value];
 	prev = nullptr;
@@ -80,7 +82,8 @@ void HashMap<K, V>::put(const K &key, const V &value)
 template <typename K, typename V>
 void HashMap<K, V>::remove(const K &key)
 {
-	unsigned long hash_value = KeyHash<K>(key);
+	KeyHash<K> hash_func;
+	unsigned long hash_value = hash_func(key);
 	HashNode<K, V> *entry, *prev;
 	entry = _hash_map[hash_value];
 	prev = nullptr;
