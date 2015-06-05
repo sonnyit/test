@@ -39,7 +39,6 @@ public:
 	virtual ~SLinkedList() {
 		while (!empty())
 		{
-			std::cout << "front not empty" << std::endl;
 			remove_front();
 		}
 	}
