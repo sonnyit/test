@@ -1,9 +1,9 @@
 CC = g++
 CFLAGS = -std=c++11 -Wall -g
 
-SRCS = 
+SRCS = main.cpp 
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 MAIN = exec
 
