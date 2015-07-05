@@ -8,7 +8,8 @@ struct DLLNode {
 
 void DLLInsert(struct DLLNode **head, int data, int position)
 {
-  DLLNode *new_node = new DLLNode({data, NULL, NULL});
+  DLLNode *new_node = new DLLNode();
+  new_node->data = data;
   if (position == 1)
   {
     new_node->next = *head;
@@ -21,7 +22,7 @@ void DLLPrint(DLLNode **head)
   DLLNode *p = *head;
   while (p != NULL)
   {
-    std::cout << *p << std::endl;
+    std::cout << (*p)->data << std::endl;
     p = p->next;
   }
 }
