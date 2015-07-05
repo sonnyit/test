@@ -13,7 +13,7 @@ all: $(MAIN)
 $(MAIN): $(OBJS)
 	$(CC) $(CFLAGS) -o $(MAIN) $(OBJS)
 
-.c.o:
+.cpp.o:
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
