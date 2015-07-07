@@ -15,6 +15,7 @@ int main(int argc, char **argv)
   DLLNode *a = new DLLNode({9, NULL, NULL});
   DLLInsert(&a, 2, 1);
   DLLInsert(&a, 5, 2);
+  DLLDelete(&a, 4);
 
   DLLPrint(&a);
 	return 0;

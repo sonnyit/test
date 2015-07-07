@@ -33,6 +33,43 @@ void DLLInsert(struct DLLNode **head, int data, int position)
   }
 }
 
+void DLLDelete(struct DLLNode **head, int position)
+{
+  DLLNode *prev_p, *p = *head;
+  int k = 1;
+
+  if (*head == NULL)
+    return;
+
+  if (position == 1)
+  {
+    *head = (*head)->next;
+    (*head)->prev = NULL;
+    delete p;
+    return;
+  }
+
+  while (k < position && p->next != NULL)
+  {
+    ++k;
+    p = p->next;
+  }
+
+  if (p->next == NULL)
+  {
+    prev_p = p->prev;
+    prev_p->next = NULL;
+    delete p;
+  }
+  else
+  {
+    prev_p = p->prev;
+    prev_p->next = p->next;
+    prev_p->next->prev = prev_p;
+    delete p;
+  }
+}
+
 void DLLPrint(DLLNode **head)
 {
   DLLNode *p = *head;
