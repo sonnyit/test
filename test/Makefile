@@ -1,9 +1,9 @@
-CC = g++
+CCX = g++
 CFLAGS = -std=c++11 -Wall -g
 
-SRCS = 
+SRCS = main.cpp
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 MAIN = exec
 
@@ -11,10 +11,10 @@ all: $(MAIN)
 	@echo compile completed!
 
 $(MAIN): $(OBJS)
-	$(CC) $(CFLAGS) -o $(MAIN) $(OBJS)
+	$(CCX) $(CFLAGS) -o $(MAIN) $(OBJS)
 
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o $@
+.cpp.o:
+	$(CCX) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) *.o *~ $(MAIN)
